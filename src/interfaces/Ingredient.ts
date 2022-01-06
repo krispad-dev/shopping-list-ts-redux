@@ -1,5 +1,4 @@
 export interface Ingredient {
-    name: string;
+    ingredient: string;
     purchased: boolean;
-    notes: string; 
 }

@@ -1,66 +1,45 @@
 import { useAppDispatch, useAppSelector } from './app/hooks';
-import { addIngredient } from './features/shoppingList-slice';
 import styled from 'styled-components';
-
-import InputForm from './components/inputForm';
+import { ThemeProvider } from 'styled-components';
+import InputForm from './components/InputForm';
+import Logo from './components/logos/Logo';
+import { toggleDarkMode } from './features/ui-slice';
+import IngredientList from './components/lists/IngredientList';
 
 
 function App() {
-	/* 	const count = useAppSelector(state => state.shoppingList.ingredients[0]);
-	const dispatch = useAppDispatch();
 
-	function handleClick(): void {
-		dispatch(
-			addIngredient({
-				name: 'Banana',
-				purchased: false,
-				notes: 'Nothing to report',
-			})
-		);
-	} */
-  
-  function toggleDarkMode(): void {
-    
-  }
+	const { isDarkMode, themes } = useAppSelector(state => state.ui);
+
 
 	return (
-		<AppContainer className='App'>
-
-			<Header></Header>
-
-			<Main>
-        <button onClick={toggleDarkMode}></button>
-				<InputForm />
-			</Main>
-
-			<Footer></Footer>
-		</AppContainer>
+		<ThemeProvider theme={isDarkMode ? themes[0] : themes[1]}>
+			<AppContainer className='App'>
+				<header>
+					<Logo />
+				</header>
+				<Main>
+					<InputForm />
+					<IngredientList />
+				</Main>
+				<footer></footer>
+			</AppContainer>
+		</ThemeProvider>
 	);
 }
 
 export default App;
 
-
 const AppContainer = styled.div`
-
-  height: 100vh;
-  background-color: ${props => props.theme.bgColor};
-
-
-
-`
-
-const Header = styled.header`
-
-`
-
+	height: 100vh;
+	background-color: ${props => props.theme.bgColor};
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+`;
 
 const Main = styled.main`
-
-`
-
-
-const Footer = styled.footer`
-
-
-`
+	height: 95%;
+	width: 95%;
+`;

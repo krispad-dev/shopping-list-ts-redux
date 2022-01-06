@@ -1,0 +1,9 @@
+{
+	"ingredients": [
+		{ "ingredient": "Quail - Whole, Boneless", "purchased": true },
+		{ "ingredient": "Bagel - Everything Presliced", "purchased": false },
+		{ "ingredient": "Chambord Royal", "purchased": false },
+		{ "ingredient": "Curry Paste - Madras", "purchased": true },
+		{ "ingredient": "Wine - Soave Folonari", "purchased": true }
+	]
+}

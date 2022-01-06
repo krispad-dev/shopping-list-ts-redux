@@ -23,10 +23,17 @@ const initialState: AppState = {
                 ...state,
                 ingredients: [ ...state.ingredients, action.payload ]
             }
+        },
+
+        setIngredients(state, action: PayloadAction<Ingredient[]>) {
+            return {
+                ...state,
+                ingredients:  action.payload
+            }
         }
     }
  })
 
 
-export const { addIngredient } = shoppingList.actions;
+export const { addIngredient, setIngredients } = shoppingList.actions;
 export default shoppingList.reducer;
