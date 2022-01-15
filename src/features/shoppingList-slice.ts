@@ -17,7 +17,6 @@ const initialState: AppState = {
     initialState,
     reducers: {
 
-        // incremented
         addIngredient(state, action: PayloadAction<Ingredient>) {
             return {
                 ...state,

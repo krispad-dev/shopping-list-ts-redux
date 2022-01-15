@@ -4,15 +4,9 @@ import { Ingredient } from '../../interfaces/Ingredient'
 
 export default function IngredientCard({ ingredient }:Ingredient) {
     return (
-        <StyledListCardContainer>
+        <div>
             <p>{ingredient}</p>
-        </StyledListCardContainer>
+        </div>
     )
 }
 
-const StyledListCardContainer = styled.li`
-
-
-
-
-`

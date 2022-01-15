@@ -1,10 +1,12 @@
-import { useAppDispatch, useAppSelector } from './app/hooks';
+import { useAppSelector } from './app/hooks';
+
 import styled from 'styled-components';
 import { ThemeProvider } from 'styled-components';
+
 import InputForm from './components/InputForm';
 import Logo from './components/logos/Logo';
-import { toggleDarkMode } from './features/ui-slice';
 import IngredientList from './components/lists/IngredientList';
+import Button from './components/buttons/Button';
 
 
 function App() {
@@ -15,14 +17,19 @@ function App() {
 	return (
 		<ThemeProvider theme={isDarkMode ? themes[0] : themes[1]}>
 			<AppContainer className='App'>
+
 				<header>
 					<Logo />
 				</header>
+
 				<Main>
 					<InputForm />
 					<IngredientList />
 				</Main>
-				<footer></footer>
+
+				<footer>
+				</footer>
+
 			</AppContainer>
 		</ThemeProvider>
 	);

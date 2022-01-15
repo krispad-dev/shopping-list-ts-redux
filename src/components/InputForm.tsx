@@ -1,10 +1,28 @@
 import styled, { StyledComponent } from 'styled-components';
+import { useState } from 'react';
+import Button from './buttons/Button';
+import { useAddIngredientMutation } from '../services/ingredient'
 
 export default function InputForm() {
+
+ 	const [ addIngredient, res ] = useAddIngredientMutation()
+	const [ formInput, setFormInput ] = useState('')
+
+	function clickHandler(e:Event): void {
+		e.preventDefault()
+		addIngredient({ purchased: false, ingredient: formInput })
+	}
+
 	return (
 		<Form>
-			<input id='add-ingredient-input' type='text' />
-			<input id='add-ingredient-checkbox' type='checkbox' />
+			<Button onClick={clickHandler} text={'SAVE'} />
+			<input 
+
+			id='add-ingredient-input' 
+			type='text' 
+			onChange={e => setFormInput(e.target.value)} 
+			
+			/>
 		</Form>
 	);
 }

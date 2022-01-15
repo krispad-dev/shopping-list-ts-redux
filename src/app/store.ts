@@ -3,15 +3,13 @@ import { setupListeners } from '@reduxjs/toolkit/query'
 
 import shoppingListReducer from '../features/shoppingList-slice'
 import uiReducer from '../features/ui-slice'
-import { ingredientsApi } from '../api/ingredient'
+import { ingredientsApi } from '../services/ingredient'
 
 export const store = configureStore({
     reducer: { 
         shoppingList: shoppingListReducer, 
         ui:  uiReducer,
         [ingredientsApi.reducerPath]: ingredientsApi.reducer,
-
-
     }, 
 
             
